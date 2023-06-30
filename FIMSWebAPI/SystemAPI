@@ -1,0 +1,31 @@
+from flask import Flask , jsonify
+
+app= Flask(__name__)
+
+product = [
+        {
+            "id": 1,
+            "title": "samsung",
+            "price": 800
+
+        },
+        {
+            "id": 2,
+            "title": "apple",
+            "price": 1200
+
+        },
+        {
+            "id": 3,
+            "title": "vivo",
+            "price": 400
+        }
+
+    ]
+
+@app.get("/product/<int:n>") #http://127.0.0.1:5000/product
+def get_products(n):
+    return {"product" : product}
+
+if __name__=="__main__" :
+    app.run(debug=True)
